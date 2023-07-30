@@ -1,94 +1,31 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "version": "1",
-      "title": "",
-      "description": ""
-    },
-    "paths": {
-      "/user/me": {
-        "get": {
-          "operationId": "user_me",
-          "description": "",
-          "tags": [
-            "user"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Returns authorized user profile",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1",
+    "title": "",
+    "description": ""
+  },
+  "paths": {
+    "/user/me": {
+      "get": {
+        "operationId": "user_me",
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
-      },
-      "/user/users": {
-        "get": {
-          "operationId": "returns_all_users",
-          "description": "",
-          "tags": [
-            "user"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Returns all users",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/User"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/user/create/{invite_key}": {
-        "post": {
-          "operationId": "create_a_user",
-          "description": "",
-          "tags": [
-            "user"
-          ],
-          "parameters": [
-            {
-              "in": "path",
-              "name": "invite_key",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns authorized user profile",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,16 +33,35 @@
                 }
               }
             }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              
-              "content": {
-                "application/json": {
-                  
-                  "schema": {
-  
+          }
+        }
+      }
+    },
+    "/user/users": {
+      "get": {
+        "operationId": "returns_all_users",
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns all users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/User"
                   }
                 }
@@ -113,196 +69,107 @@
             }
           }
         }
-      },
-      "/user/login": {
-        "post": {
-          "operationId": "login",
-          "description": "",
-          "tags": [
-            "user"
-          ],
-          "parameters": [],
-          "requestBody": {
+      }
+    },
+    "/user/create/{invite_key}": {
+      "post": {
+        "operationId": "create_a_user",
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "invite_key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            
+            "content": {
+              "application/json": {
+                
+                "schema": {
+
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "operationId": "login",
+        "description": "",
+        "tags": [
+          "user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/LoginResponse"
-                  }
+                  "$ref": "#/components/schemas/LoginResponse"
                 }
               }
             }
           }
         }
-      },
-      "/track/tracks": {
-        "get": {
-          "operationId": "return_all_tracks",
-          "description": "",
-          "tags": [
-            "track"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Track"
-                    }
-                  }
-                }
-              }
+      }
+    },
+    "/track/tracks": {
+      "get": {
+        "operationId": "return_all_tracks",
+        "description": "",
+        "tags": [
+          "track"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        }
-      },
-      "/track/{track_id}/problems": {
-        "get": {
-          "operationId": "return_all_problems_for_a_track",
-          "description": "",
-          "tags": [
-            "track"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "track_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Problem"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/track/{track_id}/submissions": {
-        "get": {
-          "operationId": "returns_all_submissions_for_a_track",
-          "description": "",
-          "tags": [
-            "track"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "track_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Submission"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/track/create": {
-        "post": {
-          "operationId": "creates_a_track",
-          "description": "",
-          "tags": [
-            "track"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "track_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "requestBody": {
+        ],
+        "responses": {
+          "200": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Track"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/Track"
                   }
                 }
@@ -310,73 +177,41 @@
             }
           }
         }
-      },
-      "/problem/problems": {
-        "get": {
-          "operationId": "all_problems",
-          "description": "",
-          "tags": [
-            "problem"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
+      }
+    },
+    "/track/{track_id}/problems": {
+      "get": {
+        "operationId": "return_all_problems_for_a_track",
+        "description": "",
+        "tags": [
+          "track"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Problem"
-                    }
-                  }
-                }
-              }
+          },
+          {
+            "in": "path",
+            "name": "track_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
-        }
-      },
-      "/problem/create": {
-        "post": {
-          "operationId": "creates_a_problem",
-          "description": "",
-          "tags": [
-            "problem"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
+        ],
+        "responses": {
+          "200": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Problem"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/Problem"
                   }
                 }
@@ -384,553 +219,41 @@
             }
           }
         }
-      },
-      "/problem/{problem_id}/submissions": {
-        "get": {
-          "operationId": "all_subs_for_a_problem",
-          "description": "",
-          "tags": [
-            "problem"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "problem_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
+      }
+    },
+    "/track/{track_id}/submissions": {
+      "get": {
+        "operationId": "returns_all_submissions_for_a_track",
+        "description": "",
+        "tags": [
+          "track"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Submission"
-                    }
-                  }
-                }
-              }
+          },
+          {
+            "in": "path",
+            "name": "track_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
-        }
-      },
-      "/problem/{problem_id}/delete": {
-        "get": {
-          "operationId": "/problem/{problem_id}/delete",
-          "description": "",
-          "tags": [
-            "problem"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "problem_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/contests": {
-        "get": {
-          "operationId": "all_contests",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Contest"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/{contest_id}/ratings": {
-        "get": {
-          "operationId": "all_ratings_for_a_contest",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "contest_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Rating"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/{contest_id}/problems": {
-        "get": {
-          "operationId": "all_problems_for_a_contest",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "contest_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Problem"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/{contest_id}/submissions": {
-        "get": {
-          "operationId": "all_subs_for_a_contest",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "contest_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Submission"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/create": {
-        "post": {
-          "operationId": "creates_a_contest",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
+        ],
+        "responses": {
+          "200": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Contest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Contest"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/{contest_id}/delete": {
-        "get": {
-          "operationId": "deletes_contest",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "contest_id",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/contest/{contest_id}/ratings/create": {
-        "post": {
-          "operationId": "creates_rating",
-          "description": "",
-          "tags": [
-            "contest"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "contest_id",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Rating"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Rating"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/event/events": {
-        "get": {
-          "operationId": "all_events",
-          "description": "",
-          "tags": [
-            "event"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Event"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/event/create": {
-        "post": {
-          "operationId": "create_event",
-          "description": "",
-          "tags": [
-            "event"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Event"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Event"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/event/{event_id}/delete": {
-        "get": {
-          "operationId": "deletes_an_event",
-          "description": "",
-          "tags": [
-            "event"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "in": "path",
-              "name": "event_id",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/submission/submissions": {
-        "get": {
-          "operationId": "all_subs",
-          "description": "",
-          "tags": [
-            "submission"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorizations",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Submission"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/submission/create": {
-        "post": {
-          "operationId": "create_sub",
-          "description": "",
-          "tags": [
-            "submission"
-          ],
-          "parameters": [
-            {
-              "in": "header",
-              "name": "Authorization",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Submission"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "",
-              "content": {
-                "application/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/Submission"
                   }
                 }
@@ -940,385 +263,1073 @@
         }
       }
     },
-    "components": {
-      "securitySchemes": {},
-      "schemas": {
-        "User": {
-          "required": [
-            "name",
-            "country",
-            "university",
-            "email",
-            "phone",
-            "telegram_username",
-            "leetcode",
-            "hackerrank",
-            "codeforces",
-            "github",
-            "preferred_language",
-            "photo",
-            "group",
-            "gender"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "role": {
-              "nullable": true,
-              "$ref": "#/components/schemas/Role"
-            },
-            "name": {
-              "nullable": false,
-              "type": "string"
-            },
-            "country": {
-              "nullable": false,
-              "type": "string"
-            },
-            "university": {
-              "nullable": false,
-              "type": "string"
-            },
-            "email": {
-              "nullable": false,
-              "type": "string"
-            },
-            "phone": {
-              "nullable": false,
-              "type": "string"
-            },
-            "telegram_username": {
-              "nullable": false,
-              "type": "string"
-            },
-            "leetcode": {
-              "nullable": false,
-              "type": "string"
-            },
-            "hackerrank": {
-              "nullable": false,
-              "type": "string"
-            },
-            "codeforces": {
-              "nullable": false,
-              "type": "string"
-            },
-            "github": {
-              "nullable": false,
-              "type": "string"
-            },
-            "preferred_language": {
-              "nullable": false,
-              "type": "string"
-            },
-            "photo": {
-              "nullable": false,
-              "type": "string"
-            },
-            "linkedin": {
-              "nullable": true,
-              "type": "string"
-            },
-            "studentID": {
-              "nullable": true,
-              "type": "string"
-            },
-            "short_bio": {
-              "nullable": true,
-              "type": "string"
-            },
-            "instagram": {
-              "nullable": true,
-              "type": "string"
-            },
-            "birthday": {
-              "nullable": true,
-              "type": "string"
-            },
-            "cv": {
-              "nullable": true,
-              "type": "string"
-            },
-            "joined_date": {
-              "nullable": true,
-              "type": "string"
-            },
-            "expected_graduation_date": {
-              "nullable": true,
-              "type": "string"
-            },
-            "mentor_name": {
-              "nullable": true,
-              "type": "string"
-            },
-            "tshirt_color": {
-              "nullable": true,
-              "type": "string"
-            },
-            "tshirt_size": {
-              "nullable": true,
-              "type": "string"
-            },
-            "code_of_conduct": {
-              "nullable": true,
-              "type": "string"
-            },
-            "group": {
-              "nullable": false,
-              "type": "number"
-            },
-            "gender": {
-              "nullable": false,
+    "/track/create": {
+      "post": {
+        "operationId": "creates_a_track",
+        "description": "",
+        "tags": [
+          "track"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
             }
-          }
-        },
-        "Track": {
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "name": {
-              "nullable": false,
-              "type": "string"
-            }
-          }
-        },
-        "Problem": {
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "track_id": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "contest_id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "name": {
-              "nullable": false,
-              "type": "string"
-            },
-            "difficulty": {
-              "nullable": false,
-              "type": "string"
-            },
-            "tag": {
-              "nullable": false,
-              "type": "string"
-            },
-            "platform": {
-              "nullable": false,
-              "type": "string"
-            },
-            "link": {
-              "nullable": false,
-              "type": "string"
-            }
-          }
-        },
-        "Contest": {
-          "required": [
-            "name",
-            "link",
-            "problem_count"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "name": {
-              "nullable": false,
-              "type": "string"
-            },
-            "link": {
-              "nullable": false,
-              "type": "string"
-            },
-            "problem_count": {
-              "nullable": false,
+          },
+          {
+            "in": "path",
+            "name": "track_id",
+            "required": true,
+            "schema": {
               "type": "integer"
             }
           }
-        },
-        "Event": {
-          "required": [
-            "type",
-            "start_time",
-            "end_time",
-            "recurring",
-            "link"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "type": {
-              "nullable": false,
-              "type": "string"
-            },
-            "start_time": {
-              "nullable": false,
-              "type": "string"
-            },
-            "end_time": {
-              "nullable": false,
-              "type": "string"
-            },
-            "recurring": {
-              "nullable": false,
-              "type": "boolean"
-            },
-            "link": {
-              "nullable": false,
-              "type": "string"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Track"
+              }
             }
           }
         },
-        "Submission": {
-          "required": [
-            "problem_id",
-            "user_id",
-            "time_spent",
-            "tries",
-            "code",
-            "language",
-            "platform"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "problem_id": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "user_id": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "time_spent": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "tries": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "in_contest": {
-              "nullable": true,
-              "type": "number"
-            },
-            "code": {
-              "nullable": false,
-              "type": "string"
-            },
-            "language": {
-              "nullable": false,
-              "type": "string"
-            },
-            "platform": {
-              "nullable": false,
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Track"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/problem/problems": {
+      "get": {
+        "operationId": "all_problems",
+        "description": "",
+        "tags": [
+          "problem"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           }
-        },
-        "Role": {
-          "required": [
-            "name"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "name": {
-              "nullable": false,
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Problem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/problem/create": {
+      "post": {
+        "operationId": "creates_a_problem",
+        "description": "",
+        "tags": [
+          "problem"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           }
-        },
-        "Rating": {
-          "required": [
-            "contest_id",
-            "user_id",
-            "rank",
-            "penalty",
-            "solved",
-            "gain"
-          ],
-          "properties": {
-            "id": {
-              "nullable": true,
-              "type": "integer"
-            },
-            "contest_id": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "user_id": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "rank": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "penalty": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "solved": {
-              "nullable": false,
-              "type": "integer"
-            },
-            "gain": {
-              "nullable": false,
-              "type": "integer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Problem"
+              }
             }
           }
         },
-        "LoginRequest": {
-          "required": [
-            "email",
-            "password"
-          ],
-          "properties": {
-            "email": {
-              "nullable": false,
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/problem/{problem_id}/submissions": {
+      "get": {
+        "operationId": "all_subs_for_a_problem",
+        "description": "",
+        "tags": [
+          "problem"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
-            },
-            "password": {
-              "nullable": false,
+            }
+          },
+          {
+            "in": "path",
+            "name": "problem_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Submission"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/problem/{problem_id}/delete": {
+      "get": {
+        "operationId": "/problem/{problem_id}/delete",
+        "description": "",
+        "tags": [
+          "problem"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "problem_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/contests": {
+      "get": {
+        "operationId": "all_contests",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contest"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/{contest_id}/ratings": {
+      "get": {
+        "operationId": "all_ratings_for_a_contest",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "contest_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rating"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/{contest_id}/problems": {
+      "get": {
+        "operationId": "all_problems_for_a_contest",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "contest_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Problem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/{contest_id}/submissions": {
+      "get": {
+        "operationId": "all_subs_for_a_contest",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "contest_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Submission"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/create": {
+      "post": {
+        "operationId": "creates_a_contest",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contest"
+              }
+            }
+          }
         },
-        "LoginResponse": {
-          "required": [
-            "type",
-            "token"
-          ],
-          "properties": {
-            "type": {
-              "nullable": false,
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/{contest_id}/delete": {
+      "get": {
+        "operationId": "deletes_contest",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
               "type": "string"
-            },
-            "token": {
-              "nullable": false,
+            }
+          },
+          {
+            "in": "path",
+            "name": "contest_id",
+            "required": true,
+            "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contest/{contest_id}/ratings/create": {
+      "post": {
+        "operationId": "creates_rating",
+        "description": "",
+        "tags": [
+          "contest"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "contest_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rating"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rating"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event/events": {
+      "get": {
+        "operationId": "all_events",
+        "description": "",
+        "tags": [
+          "event"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event/create": {
+      "post": {
+        "operationId": "create_event",
+        "description": "",
+        "tags": [
+          "event"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Event"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event/{event_id}/delete": {
+      "get": {
+        "operationId": "deletes_an_event",
+        "description": "",
+        "tags": [
+          "event"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "event_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/submission/submissions": {
+      "get": {
+        "operationId": "all_subs",
+        "description": "",
+        "tags": [
+          "submission"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorizations",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Submission"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/submission/create": {
+      "post": {
+        "operationId": "create_sub",
+        "description": "",
+        "tags": [
+          "submission"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
             }
           }
         }
       }
     }
+  },
+  "components": {
+    "securitySchemes": {},
+    "schemas": {
+      "User": {
+        "required": [
+          "name",
+          "country",
+          "university",
+          "email",
+          "phone",
+          "telegram_username",
+          "leetcode",
+          "hackerrank",
+          "codeforces",
+          "github",
+          "preferred_language",
+          "photo",
+          "group",
+          "gender"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "role": {
+            "nullable": true,
+            "$ref": "#/components/schemas/Role"
+          },
+          "name": {
+            "nullable": false,
+            "type": "string"
+          },
+          "country": {
+            "nullable": false,
+            "type": "string"
+          },
+          "university": {
+            "nullable": false,
+            "type": "string"
+          },
+          "email": {
+            "nullable": false,
+            "type": "string"
+          },
+          "phone": {
+            "nullable": false,
+            "type": "string"
+          },
+          "telegram_username": {
+            "nullable": false,
+            "type": "string"
+          },
+          "leetcode": {
+            "nullable": false,
+            "type": "string"
+          },
+          "hackerrank": {
+            "nullable": false,
+            "type": "string"
+          },
+          "codeforces": {
+            "nullable": false,
+            "type": "string"
+          },
+          "github": {
+            "nullable": false,
+            "type": "string"
+          },
+          "preferred_language": {
+            "nullable": false,
+            "type": "string"
+          },
+          "photo": {
+            "nullable": false,
+            "type": "string"
+          },
+          "linkedin": {
+            "nullable": true,
+            "type": "string"
+          },
+          "studentID": {
+            "nullable": true,
+            "type": "string"
+          },
+          "short_bio": {
+            "nullable": true,
+            "type": "string"
+          },
+          "instagram": {
+            "nullable": true,
+            "type": "string"
+          },
+          "birthday": {
+            "nullable": true,
+            "type": "string"
+          },
+          "cv": {
+            "nullable": true,
+            "type": "string"
+          },
+          "joined_date": {
+            "nullable": true,
+            "type": "string"
+          },
+          "expected_graduation_date": {
+            "nullable": true,
+            "type": "string"
+          },
+          "mentor_name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "tshirt_color": {
+            "nullable": true,
+            "type": "string"
+          },
+          "tshirt_size": {
+            "nullable": true,
+            "type": "string"
+          },
+          "code_of_conduct": {
+            "nullable": true,
+            "type": "string"
+          },
+          "group": {
+            "nullable": false,
+            "type": "number"
+          },
+          "gender": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Track": {
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "name": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Problem": {
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "track_id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "contest_id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "name": {
+            "nullable": false,
+            "type": "string"
+          },
+          "difficulty": {
+            "nullable": false,
+            "type": "string"
+          },
+          "tag": {
+            "nullable": false,
+            "type": "string"
+          },
+          "platform": {
+            "nullable": false,
+            "type": "string"
+          },
+          "link": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Contest": {
+        "required": [
+          "name",
+          "link",
+          "problem_count"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "name": {
+            "nullable": false,
+            "type": "string"
+          },
+          "link": {
+            "nullable": false,
+            "type": "string"
+          },
+          "problem_count": {
+            "nullable": false,
+            "type": "integer"
+          }
+        }
+      },
+      "Event": {
+        "required": [
+          "type",
+          "start_time",
+          "end_time",
+          "recurring",
+          "link"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "type": {
+            "nullable": false,
+            "type": "string"
+          },
+          "start_time": {
+            "nullable": false,
+            "type": "string"
+          },
+          "end_time": {
+            "nullable": false,
+            "type": "string"
+          },
+          "recurring": {
+            "nullable": false,
+            "type": "boolean"
+          },
+          "link": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Submission": {
+        "required": [
+          "problem_id",
+          "user_id",
+          "time_spent",
+          "tries",
+          "code",
+          "language",
+          "platform"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "problem_id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "user_id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "time_spent": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "tries": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "in_contest": {
+            "nullable": true,
+            "type": "number"
+          },
+          "code": {
+            "nullable": false,
+            "type": "string"
+          },
+          "language": {
+            "nullable": false,
+            "type": "string"
+          },
+          "platform": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Role": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "name": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "Rating": {
+        "required": [
+          "contest_id",
+          "user_id",
+          "rank",
+          "penalty",
+          "solved",
+          "gain"
+        ],
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "contest_id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "user_id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "rank": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "penalty": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "solved": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "gain": {
+            "nullable": false,
+            "type": "integer"
+          }
+        }
+      },
+      "LoginRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "nullable": false,
+            "type": "string"
+          },
+          "password": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "LoginResponse": {
+        "required": [
+          "type",
+          "token"
+        ],
+        "properties": {
+          "type": {
+            "nullable": false,
+            "type": "string"
+          },
+          "token": {
+            "nullable": false,
+            "type": "string"
+          }
+        }
+      },
+      "DeleteResponse": {
+        "required": [
+          "deleted"
+        ],
+        "properties": {
+          "deleted": {
+            "nullable": false,
+            "type": "boolean"
+          }
+        }
+      }
+    }
   }
+}
