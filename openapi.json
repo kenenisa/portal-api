@@ -263,7 +263,7 @@
         }
       }
     },
-    "/track/{track_id}/create": {
+    "/track/create": {
       "post": {
         "operationId": "creates_a_track",
         "description": "",
