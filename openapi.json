@@ -1175,11 +1175,11 @@
             },
             "recurring": {
               "nullable": false,
-              "type": "boolean"
+              "type": "integer"
             },
             "link": {
               "nullable": false,
-              "type": "integer"
+              "type": "string"
             }
           }
         },
