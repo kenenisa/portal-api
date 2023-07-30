@@ -17,6 +17,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -47,6 +48,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -154,6 +156,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -187,6 +190,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -228,6 +232,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -269,6 +274,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -316,6 +322,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -349,6 +356,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -388,6 +396,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -429,6 +438,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -467,6 +477,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -500,6 +511,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -541,6 +553,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -582,6 +595,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -623,6 +637,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -662,6 +677,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -700,6 +716,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -747,6 +764,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -780,6 +798,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -819,6 +838,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
@@ -890,6 +910,7 @@
             {
               "in": "header",
               "name": "Authorization",
+              "required": true,
               "schema": {
                 "type": "string"
               }
